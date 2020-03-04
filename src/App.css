@@ -10,3 +10,19 @@
   left: 0;
   z-index: -1;
 }
+
+.textLogoAlign {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.textAlign {
+	display: flex;
+	position: relative;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

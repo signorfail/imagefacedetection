@@ -3,10 +3,16 @@ import React from 'react';
 const Rank = () => {
 	return (
 		<div>
-			<div className='f2 center white'>
-				{'<박와이피> your current submission rank is...'}
+			<div>
+				<p className='f2 ma1 center b'>
+				{'Face Detection With'} <br>
+				</br>{'Machine Learning'}
+				</p>
 			</div>
-			<div className='f2 center white'>
+			<div className='f4 center white'>
+				{'<User> your image submission rank is...'}
+			</div>
+			<div className='f4 center white'>
 				{'#1'}
 			</div>
  		</div>

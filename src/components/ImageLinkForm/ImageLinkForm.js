@@ -3,14 +3,11 @@ import React from 'react';
 const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
 	return (
 		<div>
-			<p className='f3'>
-				{'Face Detection in Images Using Machine Learning.'}
-			</p>
 			<div className='center'>
 				<div className='center pa4 br3'>
-					<input className='f4 pa2 w-70 center' type='text' placeholder='Enter image link' onChange={onInputChange} />
+					<input className='f5 pa2 w5 center' type='text' placeholder='Enter image link' onChange={onInputChange} />
 					<button 
-						className='w-20 grow f4 link ph3 pv2 ml1 dib'
+						className='w-30 grow f5 link ph3 pv2 ml1 dib'
 						onClick={onButtonSubmit}
 						>Run</button>
 				</div>

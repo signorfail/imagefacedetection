@@ -5,13 +5,16 @@ import './FaceRecognition.css';
 
 const FaceRecognition = ({ imageUrl, box }) => {
 	return (
-		<div className='absolute center ma mt3'>
-			<img id='inputImage' alt='' src={imageUrl} width='500px' height='auto'/>
-			<div className='bounding-box' style={{top: box.topRow, right: box.rightCol, bottom: box.bottomRow, left: box.leftCol}}></div>
+		<div className='center ma'>
+			<div className='absolute center'>
+				<img className='inputImage' id='inputImage' alt='' src={imageUrl} />
+				<div className='bounding-box' style={{top: box.topRow, right: box.rightCol, bottom: box.bottomRow, left: box.leftCol}}></div>
+			</div>	
 		</div>
 	);
 }
 
 export default FaceRecognition;
 
-// for src = 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
+// for src ={imageUrl}
+// https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80
