@@ -11,7 +11,7 @@ const Register = ({ onRouteChange }) => {
 			        <label className="db fw6 lh-copy f6" htmlFor="username">Username</label>
 			        <input 
 				        placeholder='Enter a username' 
-				        className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+				        className="pa2 input-reset ba bg-bg-light-gray hover-bg-black hover-white w-100" 
 				        type="text" 
 				        name="username"  id="username" />
 			      </div>
@@ -19,7 +19,7 @@ const Register = ({ onRouteChange }) => {
 			        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 			        <input 
 				        placeholder='Enter your Email' 
-				        className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+				        className="pa2 input-reset ba bg-bg-light-gray hover-bg-black hover-white w-100" 
 				        type="email" 
 				        name="email-address"  
 				        id="email-address" />
@@ -28,7 +28,7 @@ const Register = ({ onRouteChange }) => {
 			        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
 			        <input 
 				        placeholder='Enter your Password' 
-				        className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+				        className="pa2 input-reset ba bg-bg-light-gray hover-bg-black hover-white w-100" 
 				        type="password" 
 				        name="password"  
 				        id="password" />
@@ -37,7 +37,7 @@ const Register = ({ onRouteChange }) => {
 			    <div className="">
 			      <input
 			      	onClick= {() => onRouteChange('home')}
-				    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+				    className="b ph3 pv2 input-reset ba b--black bg-transparent shadow-5 grow pointer f6 dib" 
 				    type="submit"
 				    value="Sign Up"
 			      />

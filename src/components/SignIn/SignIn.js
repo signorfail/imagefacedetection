@@ -9,18 +9,28 @@ const SignIn = ({ onRouteChange }) => {
 			      <legend className="f4 fw6 ph0 mh0">Sign In</legend>
 			      <div className="mt3">
 			        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-			        <input placeholder='Enter your Email' className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address"></input>
+			        <input 
+				        placeholder='Enter your Email' 
+				        className="pa2 input-reset ba bg-bg-light-gray hover-bg-black hover-white w-100" 
+				        type="email" 
+				        name="email-address"  
+				        id="email-address" />
 			      </div>
 			      <div className="mv3">
 			        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-			        <input placeholder='Enter your Password' className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password"></input>
+			        <input 
+				        placeholder='Enter your Password' 
+				        className="pa2 input-reset ba bg-bg-light-gray hover-bg-black hover-white w-100" 
+				        type="password" 
+				        name="password"  
+				        id="password" />
 			      </div>
-			      <label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox" /> Remember me </label>
+			      <label className="pa0 ma0 lh-copy f6"><input type="checkbox" /> Remember me </label>
 			    </fieldset>
 			    <div className="">
 			      <input
 			      	onClick= {() => onRouteChange('home')}
-				    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+				    className="b ph3 pv2 input-reset ba b--black bg-transparent shadow-5 grow pointer f6 dib" 
 				    type="submit"
 				    value="Sign In"
 			      />
