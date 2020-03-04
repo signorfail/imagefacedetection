@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation.js';
+import SignIn from './components/SignIn/SignIn.js';
+import SignUp from './components/SignUp/SignUp.js';
 import Logo from './components/Logo/Logo.js';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm.js';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition.js';
@@ -34,6 +36,8 @@ class App extends Component {
       input: '',
       imageUrl: '',
       box: {},
+      route: 'SignIn',
+      isSignedIn: false
     }
   }
 
@@ -50,16 +54,24 @@ class App extends Component {
    }
   }
 
+  onRouteChange= (route) => {
+    if (route === 'signedOut') {
+      this.setState({isSignedIn: false})
+    } else if (route === 'home') {
+      this.setState({isSignedIn: true})
+    }
+    this.setState({route: route});
+  }
+
   displayFaceBox = (box) => {
-    console.log(box);
    this.setState({box: box}); 
   }
 
-  onInputChange=(event) => {
+  onInputChange= (event) => {
     this.setState({input: event.target.value});
   }
 
-  onButtonSubmit=() => {
+  onButtonSubmit= () => {
     this.setState({imageUrl: this.state.input});
     app.models
       .predict(
@@ -70,24 +82,33 @@ class App extends Component {
   }
 
   render() {
+    const { isSignedIn, route, imageUrl, box } = this.state;
     return (
       <div className="App">
         <Particles className='particles' params={particlesOptions} />
-        <Navigation />
-        <div className='textLogoAlign'>
-          <Logo />
-          <div className='textAlign'>
-            <Rank />
-          </div>
-        </div>
-        <ImageLinkForm 
-          onInputChange={this.onInputChange} 
-          onButtonSubmit={this.onButtonSubmit} 
-          />
-        <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+        <Navigation isSignedIn= {isSignedIn} onRouteChange={this.onRouteChange} />
+        { route === 'home'
+           ? <div>
+              <div className='textLogoAlign'>
+                <Logo />
+                <div className='textAlign'>
+                  <Rank />
+                </div>
+              </div>
+              <ImageLinkForm
+                onInputChange={this.onInputChange} 
+                onButtonSubmit={this.onButtonSubmit} 
+                />
+              <FaceRecognition box={box} imageUrl={imageUrl} />
+            </div>
+          : (
+            route === 'SignIn'
+              ? <SignIn onRouteChange={this.onRouteChange} />
+              : <SignUp onRouteChange={this.onRouteChange} />
+            )
+        }
       </div>
     );
   }
 }
-
 export default App;

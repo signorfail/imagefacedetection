@@ -9,10 +9,10 @@ const Rank = () => {
 				</br>{'Machine Learning'}
 				</p>
 			</div>
-			<div className='f4 center white'>
+			<div className='f5 center'>
 				{'<User> your image submission rank is...'}
 			</div>
-			<div className='f4 center white'>
+			<div className='f4 center'>
 				{'#1'}
 			</div>
  		</div>
