@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Rank = () => {
+const Rank = ({ name, entries }) => {
 	return (
 		<div>
 			<div>
@@ -10,10 +10,10 @@ const Rank = () => {
 				</p>
 			</div>
 			<div className='f5 center'>
-				{'<User> your image submission rank is...'}
+				{`${name} your image submission rank is... `}
 			</div>
 			<div className='f4 center'>
-				{'#1'}
+				{`${entries}`}
 			</div>
  		</div>
 	);
