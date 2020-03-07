@@ -100,7 +100,7 @@ class App extends Component {
         this.state.input)
       .then(response => {
         if(response) {
-          fetch('http://localhost:3000/updateImageCount', {
+          fetch('http://localhost:3001/updateImageCount', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
