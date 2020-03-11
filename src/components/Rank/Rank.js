@@ -10,7 +10,7 @@ const Rank = ({ name, entries }) => {
 				</p>
 			</div>
 			<div className='f5 center'>
-				{`${name} your image submission rank is... `}
+				{`${name}. The number of images you have sent is... `}
 			</div>
 			<div className='f4 center'>
 				{`${entries}`}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation.js';
 import SignIn from './components/SignIn/SignIn.js';
 import SignUp from './components/SignUp/SignUp.js';
@@ -9,10 +8,6 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition.js';
 import Rank from './components/Rank/Rank.js';
 import Particles from 'react-particles-js';
 import './App.css';
-
-const app = new Clarifai.App({
- apiKey: 'dc0dec044ee247be9d76934e0267aacc'
-});
 
 const particlesOptions = {
   particles: {
@@ -29,23 +24,26 @@ const particlesOptions = {
   }
 }
 
+const initialState = {
+// Sets app to this state once signed out
+  input: '',
+  imageUrl: '',
+  box: {},
+  route: 'SignIn',
+  isSignedIn: false,
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    entries: 0,
+    joined: ''
+  }
+}
+
 class App extends Component {
   constructor() {
     super();
-    this.state={
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'SignIn',
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    }
+    this.state = initialState
   }
 
   loadUser = (data) => {
@@ -76,7 +74,8 @@ class App extends Component {
 
   onRouteChange= (route) => {
     if (route === 'signedOut') {
-      this.setState({isSignedIn: false})
+      this.setState(initialState)
+      // if is signed out will clear user state to initial state
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
     }
@@ -94,10 +93,14 @@ class App extends Component {
   onButtonSubmit= () => {
     // Submits image to API
     this.setState({imageUrl: this.state.input});
-    app.models
-      .predict(
-        Clarifai.FACE_DETECT_MODEL, 
-        this.state.input)
+      fetch('http://localhost:3001/imageAPI', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          input: this.state.input
+        })
+      })
+      .then(response => response.json())
       .then(response => {
         if(response) {
           fetch('http://localhost:3001/updateImageCount', {
@@ -109,14 +112,13 @@ class App extends Component {
           })
           .then(response => response.json())
           .then(count => {
-            this.setState({users: {
-              entries: count
-            }})
+            this.setState(Object.assign(this.state.user, { entries: count}))
           })
+          .catch(error => console.log('Error. Updating image count failed.', error));
+          }
         this.displayFaceBox(this.calculateFaceLocation(response));
-        }
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log('Error. API Failed', error));
   }
 
   render() {
@@ -131,8 +133,8 @@ class App extends Component {
                 <Logo />
                 <div className='textAlign'>
                   <Rank
-                  name={this.state.user.name}
-                  entries={this.state.user.entries}
+                    name={this.state.user.name}
+                    entries={this.state.user.entries}
                   //allows the user's name and entries to display with template text found in rank.js
                   />
                 </div>
