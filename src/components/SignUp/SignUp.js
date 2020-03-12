@@ -19,7 +19,7 @@ class Register extends React.Component {
 		this.setState({registerPassword: event.target.value})
 	}
 	onSubmitSignIn = () => {
-		fetch('https://git.heroku.com/floating-wave-22954.git/register', {
+		fetch('https://floating-wave-22954.herokuapp.com/register', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({

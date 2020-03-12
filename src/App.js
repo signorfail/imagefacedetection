@@ -94,7 +94,7 @@ class App extends Component {
   onButtonSubmit= () => {
     // Submits image to API
     this.setState({imageUrl: this.state.input});
-      fetch('https://git.heroku.com/floating-wave-22954.git/imageAPI', {
+      fetch('https://floating-wave-22954.herokuapp.com/imageAPI', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -104,7 +104,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if(response) {
-          fetch('https://git.heroku.com/floating-wave-22954.git/updateImageCount', {
+          fetch('https://floating-wave-22954.herokuapp.com/updateImageCount', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

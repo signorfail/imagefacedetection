@@ -16,7 +16,7 @@ class SignIn extends React.Component {
 		this.setState({signInPassword: event.target.value})
 	}
 	onSubmitSignIn = () => {
-		fetch('https://git.heroku.com/floating-wave-22954.git/signIn', {
+		fetch('https://floating-wave-22954.herokuapp.com/signIn', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
