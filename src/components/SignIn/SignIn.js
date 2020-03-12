@@ -16,9 +16,7 @@ class SignIn extends React.Component {
 		this.setState({signInPassword: event.target.value})
 	}
 	onSubmitSignIn = () => {
-		/* console.log(this.state);
-		logs onSubmitSignin data to console*/
-		fetch('http://localhost:3001/signIn', {
+		fetch('https://git.heroku.com/floating-wave-22954.git/signIn', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -62,7 +60,7 @@ class SignIn extends React.Component {
 							id="password"
 							onChange= {this.onPasswordChange} />
 					  </div>
-					  <label className="pa0 ma0 lh-copy f6"><input type="checkbox" /> Remember me </label>
+					  {/* <label className="pa0 ma0 lh-copy f6"><input type="checkbox" /> Remember me </label> */}
 					</fieldset>
 					<div className="">
 					  <input
@@ -74,7 +72,7 @@ class SignIn extends React.Component {
 					</div>
 					<div className="lh-copy mt3">
 					  <p onClick= {() => onRouteChange('SignUp')} className="f6 link dim black db pointer">Sign Up</p>
-					  <a href="#0" className="f6 link dim black db">Forgot your password?</a>
+					  {/* <a href="#0" className="f6 link dim black db">Forgot your password?</a> */}
 					</div>
 				  </div>
 				</main>

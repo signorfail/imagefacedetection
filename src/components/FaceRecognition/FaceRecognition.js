@@ -1,8 +1,6 @@
 import React from 'react';
 import './FaceRecognition.css';
 
-// have to redo style. Added absolute to <div> wrapping <img> or bounding box won't work
-
 const FaceRecognition = ({ imageUrl, box }) => {
 	return (
 		<div className='center ma'>
@@ -15,6 +13,3 @@ const FaceRecognition = ({ imageUrl, box }) => {
 }
 
 export default FaceRecognition;
-
-// for src ={imageUrl}
-// https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80

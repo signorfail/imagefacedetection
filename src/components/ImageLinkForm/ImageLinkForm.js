@@ -4,7 +4,7 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
 	return (
 		<div>
 			<div className='center'>
-				<div className='center pa4 br3'>
+				<div className='center pa2 br3'>
 					<input className='f5 pa2 w5 center' type='text' placeholder='Enter image link' onChange={onInputChange} />
 					<button 
 						className='w-30 grow f5 link ph3 pv2 ml1 dib'

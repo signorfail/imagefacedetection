@@ -4,7 +4,7 @@ import facialRecognitionLogo from './facialRecognitionLogo.png';
 
 const Logo = () => {
 	return (
-		<div className='appLogo ma4 mt0 br2 shadow-2 pa1 grow'>
+		<div className='appLogo ma4 mt0 br2 shadow-2 pa1'>
  			<img style={{paddingTop:'3px'}} alt='logo' src={facialRecognitionLogo}/>
 		</div>
 	);

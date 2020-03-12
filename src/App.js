@@ -6,6 +6,7 @@ import Logo from './components/Logo/Logo.js';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm.js';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition.js';
 import Rank from './components/Rank/Rank.js';
+import Footer from './components/Footer/Footer.js';
 import Particles from 'react-particles-js';
 import './App.css';
 
@@ -73,7 +74,7 @@ class App extends Component {
   }
 
   onRouteChange= (route) => {
-    if (route === 'signedOut') {
+    if (route === 'SignIn') {
       this.setState(initialState)
       // if is signed out will clear user state to initial state
     } else if (route === 'home') {
@@ -93,7 +94,7 @@ class App extends Component {
   onButtonSubmit= () => {
     // Submits image to API
     this.setState({imageUrl: this.state.input});
-      fetch('http://localhost:3001/imageAPI', {
+      fetch('https://git.heroku.com/floating-wave-22954.git/imageAPI', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -103,7 +104,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if(response) {
-          fetch('http://localhost:3001/updateImageCount', {
+          fetch('https://git.heroku.com/floating-wave-22954.git/updateImageCount', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -151,6 +152,7 @@ class App extends Component {
               : <SignUp loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
             )
         }
+        <Footer className='footer' />
       </div>
     );
   }
